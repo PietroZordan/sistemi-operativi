@@ -35,4 +35,45 @@ __nb__: dal punto di vista di un programmatore, chiamare una system call, è com
 - - -
 
 ### Esecuzione della system call
-57:33
+Esistono delle funzioni __wrapper__, che permettono di chiamare altre funzioni o system call.
+Per favorire le prestazioni, i passaggi di informazioni avvengono mediante indirizzi.
+Le system call, hanno tutte un valore di ritorno, e per convenzione in caso di fallimento è sempre -1. In caso di errore delle system call, possiamo trovare la descrizione dell'errore in nell'header file <errno.h>.
+- - -
+#include <errno.h>
+
+fd = ...
+if(fd == -1){
+    if(errno == EACCES){
+        printf("Errore di accesso");
+    }else{
+        printf("Altri errori");
+    }
+}
+- - -
+Possiamo vedere quale system call viene usata dal processo mediante il comando __strace__.
+
+### Manuale
+Per consultare il manuale incorporato nel dispositivo, è possibile utilizzare il comando __man__ da shell. Possiamo usarlo seguito dal nome del comando, o dal numero della pagina a cui vogliamo accedere:
+- 1: contiene i comandi utente.
+- 2: contiene la documentazione sulle system call.
+- 3: contiene la documentazione delle standard library C.
+- 4: contiene dettagli sui dispositivi.
+- 5: contiene formati di file e convenzioni.
+
+## Filesystem
+Vediamo ora alcune system call che ci permettono di lavorare con i file:
+- La system call __open__, permette di aprire un file, creandolo se non esiste. In caso di errore restituisce -1, mentre se avviene con successo restituisce un file descriptor, che "punta" al file identificato dal pathname.
+- La system call __read__, permette di leggere il contenuto di un file, restituendo -1 in caso di errore, altrimenti il numero di bytes letti.
+- La system call __write__, permette di scrivere su un file descriptor, restituendo -1 in caso di errore, altrimenti il numero di bytes scritti.
+- La system call __lseek__ permette di muoversi all'interno di un file. Restituisce -1 in caso di errore, altrimenti l'offset corrispondente alla posizione nel file.
+- La system call __close__ permette di chiudere un file descriptor aperto. Restituisce -1 o 0.
+- La system call __unlink__ permette di rimuovere un link ad un file, e se è l'ultimo rimasto, elimina il file stesso. Restituisce -1 o 0.
+- Le system call __stat lstat fstat__ permettono di ricavare informazioni su un file. Restituisce -1 o 0.
+- La system call __access__ permette di verificare i permessi di un file. Restituisce -1 se non ha accesso a tutti i permessi.
+- Le system call __chmod fchmod__ permetto di cambiare i permessi di un file. Restituisce -1 o 0.
+- - -
+__nb__: grazie al comando "unmask" andremo a creare file con gli stessi permessi.
+__nb__: la read è una call bloccante, ovvero, se i dati non sono disponibili, il kernel la interrompe momentaneamente fino a che non sono disponibili, in modo da non perdere tempo.
+- - -
+
+#  10/10/2022
