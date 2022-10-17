@@ -73,6 +73,7 @@ Vediamo ora alcune system call che ci permettono di lavorare con i file:
 - Le system call __chmod fchmod__ permetto di cambiare i permessi di un file. Restituisce -1 o 0.
 - - -
 __nb__: grazie al comando "unmask" andremo a creare file con gli stessi permessi.
+
 __nb__: la read è una call bloccante, ovvero, se i dati non sono disponibili, il kernel la interrompe momentaneamente fino a che non sono disponibili, in modo da non perdere tempo.
 - - -
 
