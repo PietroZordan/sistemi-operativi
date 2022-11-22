@@ -19,7 +19,7 @@ Quando il processo termina, la memoria destinata e allocata viene rilasciata.
 __nb__: le variabili globali sono utili, ma vanno usate solo se necessario, in quanto sono sempre disponibili, ma occupano sempre memoria.
 - -  -
 ## Descrittori
-I file descrittori, sono dei numeri che identificano univocamente un file nel'OS, e descrivono come deve avvenire l'accesso alla risorsa. I descrittori sempre presenti in un processo sono: 
+I file descrittori, sono dei numeri che identificano univocamente un file nel'OS, e descrivono come deve avvenire l'accesso alla risorsa. I descrittori semrpe presenti in un processo sono: 
 - standard input (0): STDIN_FILENO
 - standard output (1): STDOUT_FILENO
 - standard error (2): STDERR_FILENO
@@ -37,8 +37,8 @@ __nb__: dal punto di vista di un programmatore, chiamare una system call, è com
 ### Esecuzione della system call
 Esistono delle funzioni __wrapper__, che permettono di chiamare altre funzioni o system call.
 Per favorire le prestazioni, i passaggi di informazioni avvengono mediante indirizzi.
-Le system call, hanno tutte un valore di ritorno, e per convenzione in caso di fallimento è sempre -1. In caso di errore delle system call, possiamo trovare la descrizione dell'errore nell'header file <errno.h>.
-- - -
+Le system call, hanno tutte un valore di ritorno, e per convenzione in caso di fallimento è sempre -1. In caso di errore delle system call, possiamo trovare la descrizione dell'errore in nell'header file <errno.h>.
+```c
 #include <errno.h>
 
 fd = ...
@@ -49,7 +49,7 @@ if(fd == -1){
         printf("Altri errori");
     }
 }
-- - -
+```
 Possiamo vedere quale system call viene usata dal processo mediante il comando __strace__.
 
 ### Manuale
@@ -73,7 +73,6 @@ Vediamo ora alcune system call che ci permettono di lavorare con i file:
 - Le system call __chmod fchmod__ permetto di cambiare i permessi di un file. Restituisce -1 o 0.
 - - -
 __nb__: grazie al comando "unmask" andremo a creare file con gli stessi permessi.
-
 __nb__: la read è una call bloccante, ovvero, se i dati non sono disponibili, il kernel la interrompe momentaneamente fino a che non sono disponibili, in modo da non perdere tempo.
 - - -
 
