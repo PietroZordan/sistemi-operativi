@@ -5,6 +5,7 @@ L'interazione tra user e OS sono continue, ogni volta che sfruttiamo l'interfacc
 - applicazione
 - os
 - hardware
+
 L'OS può essere visto in due modi: un __gestore di risorse__, che possono essere sia software che hardware, e un __programma di controllo__ che controlla l'esecuzione dei programmi, e come i processi interagiscono tra loro e con il calcolatore, soprattuto in momenti critici.
 
 ## Cenno storico
