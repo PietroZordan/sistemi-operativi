@@ -37,7 +37,7 @@ __nb__: dal punto di vista di un programmatore, chiamare una system call, è com
 ### Esecuzione della system call
 Esistono delle funzioni __wrapper__, che permettono di chiamare altre funzioni o system call.
 Per favorire le prestazioni, i passaggi di informazioni avvengono mediante indirizzi.
-Le system call, hanno tutte un valore di ritorno, e per convenzione in caso di fallimento è sempre -1. In caso di errore delle system call, possiamo trovare la descrizione dell'errore in nell'header file <errno.h>.
+Le system call, hanno tutte un valore di ritorno, e per convenzione in caso di fallimento è sempre -1. In caso di errore delle system call, possiamo trovare la descrizione dell'errore nell'header file <errno.h>.
 - - -
 #include <errno.h>
 
