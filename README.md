@@ -19,7 +19,7 @@ Quando il processo termina, la memoria destinata e allocata viene rilasciata.
 __nb__: le variabili globali sono utili, ma vanno usate solo se necessario, in quanto sono sempre disponibili, ma occupano sempre memoria.
 - -  -
 ## Descrittori
-I file descrittori, sono dei numeri che identificano univocamente un file nel'OS, e descrivono come deve avvenire l'accesso alla risorsa. I descrittori semrpe presenti in un processo sono: 
+I file descrittori, sono dei numeri che identificano univocamente un file nel'OS, e descrivono come deve avvenire l'accesso alla risorsa. I descrittori sempre presenti in un processo sono: 
 - standard input (0): STDIN_FILENO
 - standard output (1): STDOUT_FILENO
 - standard error (2): STDERR_FILENO
