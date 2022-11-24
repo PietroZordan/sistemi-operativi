@@ -46,7 +46,7 @@ La quarta generazione si spinge fino ad oggi, che abbiamo a disposizione O.S di 
 - - -
 __nb__: DMA (direct memory access).
 
-___Esempio__: se avviene la scrittura in memoria di 4 Gbyte, in blocchi da 10 Kbyte, la DMA riceve tutti gli interrupt per ogni blocco, alla CPU arriverà solo l'interrupt finale, quando tutti i 4 Gbyte saranno trasferiti.
+__Esempio__: se avviene la scrittura in memoria di 4 Gbyte, in blocchi da 10 Kbyte, la DMA riceve tutti gli interrupt per ogni blocco, alla CPU arriverà solo l'interrupt finale, quando tutti i 4 Gbyte saranno trasferiti.
 - - -
 
 ## Componenti del sistema operativo
